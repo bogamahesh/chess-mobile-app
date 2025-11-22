@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Mobile Chess</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="game-container">
+        <h1>Mobile Chess</h1>
+        <div id="menu">
+            <button id="btn-ai">Play vs AI</button>
+            <button id="btn-offline">Play Offline</button>
+        </div>
+        <div id="game-area" style="display: none;">
+            <div id="status">White's Turn</div>
+            <canvas id="chess-board" width="640" height="640"></canvas>
+            <button id="btn-menu">Back to Menu</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js')
+                .then(() => console.log('Service Worker Registered'))
+                .catch((err) => console.log('Service Worker Failed', err));
+        }
+    </script>
+</body>
+
+</html>
